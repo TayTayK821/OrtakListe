@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANK ⟶ WRO — Ortak Liste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== GİRİŞ EKRANI ===== -->
+<div id="login-gate" class="login-gate">
+  <form id="login-form" class="login-form">
+    <span class="eyebrow">ANK &nbsp;·&middot;&middot;&middot;&middot;&middot;&nbsp; WRO</span>
+    <h1>Giriş yap</h1>
+    <input type="email" id="login-email" placeholder="e-posta" required autocomplete="username">
+    <input type="password" id="login-password" placeholder="şifre" required autocomplete="current-password">
+    <button type="submit">Gir</button>
+    <p id="login-error" class="login-error" hidden></p>
+  </form>
+</div>
+
+<!-- ===== UYGULAMA ===== -->
+<div id="app" class="app" hidden>
+
+  <header class="hero" id="hero">
+    <div class="hero__photo-layer" id="hero-photos"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__top">
+      <div class="route">
+        <span class="route__city">ANK</span>
+        <span class="route__line"></span>
+        <span class="route__plane">✈</span>
+        <span class="route__line"></span>
+        <span class="route__city">WRO</span>
+      </div>
+      <button id="logout-btn" class="ghost-btn">Çıkış</button>
+    </div>
+    <h1 class="hero__title">İki şehir,<br>tek liste.</h1>
+    <p class="hero__subtitle">Beğendiklerimiz. İstediklerimiz. Birlikte tutuyoruz.</p>
+    <div class="hero__scroll-cue"><span>kaydır</span><span class="hero__scroll-arrow">↓</span></div>
+  </header>
+
+  <main>
+    <section class="list-section reveal" data-reveal="slide-right" data-owner="you" data-list="kesin">
+      <div class="list-section__header">
+        <span class="list-section__code">01 · KESİN</span>
+        <h2>Taylan — Kesin Alınacaklar</h2>
+        <p class="list-section__hint">Karar verildi, sıra alışverişte.</p>
+      </div>
+      <ul class="item-list" data-list-root></ul>
+      <form class="add-form">
+        <input type="text" placeholder="Ne almak istiyorsun?" required class="add-form__title" maxlength="80">
+        <input type="url" placeholder="Link (opsiyonel)" class="add-form__link">
+        <button type="submit" aria-label="Ekle">+</button>
+      </form>
+      <p class="add-form__error" hidden></p>
+    </section>
+
+    <section class="list-section reveal" data-reveal="slide-left" data-owner="you" data-list="begenilen">
+      <div class="list-section__header">
+        <span class="list-section__code">02 · BEĞENİ</span>
+        <h2>Taylan — Beğendiklerim</h2>
+        <p class="list-section__hint">Henüz karar yok, göz kırpıyor.</p>
+      </div>
+      <ul class="item-list" data-list-root></ul>
+      <form class="add-form">
+        <input type="text" placeholder="Neyi beğendin?" required class="add-form__title" maxlength="80">
+        <input type="url" placeholder="Link (opsiyonel)" class="add-form__link">
+        <button type="submit" aria-label="Ekle">+</button>
+      </form>
+      <p class="add-form__error" hidden></p>
+    </section>
+
+    <section class="list-section reveal" data-reveal="slide-right" data-owner="partner" data-list="kesin">
+      <div class="list-section__header">
+        <span class="list-section__code">03 · KESİN</span>
+        <h2 data-partner-name>Nur — Kesin Alınacaklar</h2>
+        <p class="list-section__hint">Karar verildi, sıra alışverişte.</p>
+      </div>
+      <ul class="item-list" data-list-root></ul>
+      <form class="add-form">
+        <input type="text" placeholder="Ne almak istiyorsun?" required class="add-form__title" maxlength="80">
+        <input type="url" placeholder="Link (opsiyonel)" class="add-form__link">
+        <button type="submit" aria-label="Ekle">+</button>
+      </form>
+      <p class="add-form__error" hidden></p>
+    </section>
+
+    <section class="list-section reveal" data-reveal="slide-left" data-owner="partner" data-list="begenilen">
+      <div class="list-section__header">
+        <span class="list-section__code">04 · BEĞENİ</span>
+        <h2 data-partner-name>Nur — Beğendiklerin</h2>
+        <p class="list-section__hint">Henüz karar yok, göz kırpıyor.</p>
+      </div>
+      <ul class="item-list" data-list-root></ul>
+      <form class="add-form">
+        <input type="text" placeholder="Neyi beğendin?" required class="add-form__title" maxlength="80">
+        <input type="url" placeholder="Link (opsiyonel)" class="add-form__link">
+        <button type="submit" aria-label="Ekle">+</button>
+      </form>
+      <p class="add-form__error" hidden></p>
+    </section>
+
+    <section class="gallery reveal" data-reveal="scale-in">
+      <div class="gallery__header">
+        <span class="list-section__code">05 · ANILAR</span>
+        <h2>Anılarımız</h2>
+      </div>
+      <div class="gallery__grid" id="gallery-grid">
+        <p class="gallery__empty" id="gallery-empty">assets/photos/ klasörüne fotoğraf ekleyip photos.json'a dosya adını yazınca burada dönmeye başlayacaklar.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span class="route__mini">ANK ⟶ WRO</span>
+    </footer>
+  </main>
+</div>
+
+<script type="module" src="js/config.js"></script>
+<script type="module" src="js/firebase-init.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/lists.js"></script>
+<script type="module" src="js/carousel.js"></script>
+<script type="module" src="js/scroll-reveal.js"></script>
+</body>
+</html>
